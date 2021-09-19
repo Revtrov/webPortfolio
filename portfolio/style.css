@@ -395,7 +395,7 @@ transition-delay: .01ms!important
         overflow: hidden;
     }
     #front-left {
-        background: url(snakesAndLadders/snakes\ and\ ladders.png)center top;
+        background: url(snakesAndLadders/snakesAndLadders.png)center top;
         background-size: cover
     }
     #front-right {
