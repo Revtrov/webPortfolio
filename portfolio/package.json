@@ -1,0 +1,20 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "my web development portfolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "start",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "Revtrov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "path": "^0.12.7"
+  }
+}
