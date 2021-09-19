@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="topBar">
+        <div id="logo">
+        </div>
+        <div></div>
+        <div class="topBarElement" id="home">Home</div>
+        <div class="topBarElement" id="projects">Projects</div>
+        <div class="topBarElement" id="about">About</div>
+        <div class="topBarElement" id="contact">Contact</div>
+    </div>
+    <div class="card-container">
+        <div class="card" id="card-left">
+            <div id="zSpinL" class="zSpin">
+                <div id="ySpinL" class="ySpin">
+                    <div id="front-left" class="front">
+                        <div class="card-content">
+                            <h2 class="card-title">Snakes & Ladders</h2>
+                            <p class="card-body">
+                                Have a game of snakes and ladders!
+                            </p>
+                            <a tabindex="1" id="left-button" class="button">Try me</a>
+                        </div>
+                    </div>
+                    <div class="back" id="back-left"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="card-middle">
+            <div id="zSpinM" class="zSpin">
+                <div id="ySpinM" class="ySpin">
+                    <div id="front-middle" class="front">
+                        <div class="card-content">
+                            <h2 class="card-title">Roll Dice</h2>
+                            <p class="card-body">
+                                Roll a dice with the press of a button!
+                            </p>
+                            <a tabindex="2" id="middle-button" class="button">Try me</a>
+                        </div>
+                    </div>
+                    <div class="back" id="back-middle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="card-right">
+            <div id="zSpinR" class="zSpin">
+                <div id="ySpinR" class="ySpin">
+                    <div id="front-right" class="front">
+                        <div class="card-content">
+                            <h2 class="card-title">Practice Typing</h2>
+                            <p class="card-body">
+                                Practice typing by typing random quotes!
+                            </p>
+                            <a tabindex="3" id="right-button" class="button">Try me</a>
+                        </div>
+                    </div>
+                    <div class="back" id="back-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

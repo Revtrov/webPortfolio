@@ -1,0 +1,91 @@
+.text-container {
+    text-align: left;
+    display: flexbox;
+    height: auto;
+    width: 60vh;
+    border: 2px white solid;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    margin-left: calc(100% - 60vh - 10px);
+    margin-top: 20px;
+}
+
+#loadingBarBackground {
+    position: fixed;
+    top: calc(50% - 4px);
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 4px;
+    background: grey;
+}
+
+#progress {
+    background: white;
+    width: 0px;
+    height: 4px;
+}
+
+body {
+    text-align: center;
+}
+
+#img {
+    margin-top: 40px;
+}
+
+#completed {
+    color: greenyellow;
+}
+
+#uncompleted {
+    color: white;
+}
+
+#author {
+    position: relative;
+    font-size: 20px;
+    color: white;
+}
+
+#quoteContainer {
+    height: auto;
+    width: 60vh;
+    font-size: 20px;
+    margin: auto;
+    text-align: right;
+}
+
+#newText {
+    width: auto;
+    height: auto;
+    color: white;
+    font-size: 20px;
+    border: 2px white solid;
+    border-radius: 10px;
+    font-size: 20px;
+    background: transparent;
+    position: fixed;
+    top: 90%;
+    left: 15%;
+}
+
+#input {
+    position: fixed;
+    background: transparent;
+    border: 2px white solid;
+    border-radius: 10px;
+    width: 60vh;
+    color: white;
+    margin: auto;
+    font-size: 20px;
+    left: calc(50% - 30vh);
+    top: 90%;
+    outline: none;
+    overflow: hidden;
+}
+
+body {
+    background-color: rgb(0, 33, 54);
+}

@@ -1,0 +1,470 @@
+:root {
+    --clr-neutral-900: hsl(207, 19%, 9%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-accent-100: hsl(142, 90%, 61%)
+}
+
+*,
+::before,
+:after {
+    box-sizing: border-box
+}
+
+body {
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    line-height: 1.6;
+    background: var(--clr-neutral-900);
+    font-family: monospace;
+    background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+    overflow-x: hidden !important
+}
+
+#topBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 8vh;
+    width: 100vw;
+    color: white;
+    display: grid;
+    grid-template-rows: 8vh;
+    grid-template-columns: 8vh calc(60vw - 8vh) 10vw 10vw 10vw 10vw;
+}
+
+#logo {
+    background-image: url("./logo.png");
+    background-size: cover;
+    transform: scale(5);
+    margin: 10px;
+}
+
+@media (min-width: 600px) {
+    .topBarElement {
+        text-align: center;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+        height: 20px;
+        width: auto;
+        top: calc(50% - 5px)
+    }
+    .topBarElement::after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: 60%;
+        left: 20%;
+        bottom: -2px;
+        background: linear-gradient(100deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+        transform-origin: center;
+        transition: transform 500ms ease;
+        border-radius: 2px;
+        z-index: 100;
+        transform: scaleX(0);
+    }
+    .card-container {
+        position: fixed;
+        left: calc(50% - 25vw);
+        top: 16vh;
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+    }
+    .card {
+        transform-origin: 50% 50%;
+        width: 35vh;
+        height: 65vh;
+        background-color: transparent;
+        transform-style: preserve-3d;
+        transition: transform 0.8s, opacity 1000ms ease;
+    }
+    #card-left,
+    #card-right {
+        filter: grayscale(0.5);
+        z-index: 0;
+        opacity: .8
+    }
+    .ySpin {
+        width: 100%;
+        height: 100%;
+        transform-origin: 50% 50%;
+        background-color: transparent;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        position: relative;
+        transition: transform .8s
+    }
+    .zSpin {
+        width: 100%;
+        height: 100%;
+        transform-origin: 50% 50%;
+        background-color: transparent;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        position: relative;
+        transition: transform .8s
+    }
+    .front {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: .5rem;
+        color: var(--clr-neutral-100);
+        background-size: cover;
+        padding: 3.5rem 0 0;
+        width: 35vh;
+        height: 50vh;
+        overflow: hidden;
+        transition: transform .8s;
+        transform-style: preserve-3d
+    }
+    .front,
+    .back {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden
+    }
+    #front-left {
+        background-image: url(snakesAndLadders/snakes\ and\ ladders.png)
+    }
+    #front-right {
+        background-image: url(dice/typingPractice.png)
+    }
+    #front-middle {
+        background-image: url(dice/rollDice.png)
+    }
+    #card-left .card-title,
+    #card-right .card-title {
+        margin-left: -10px;
+        font-weight: 600!important
+    }
+    .back {
+        transform: rotateY(180deg);
+        position: absolute;
+        border-radius: .5rem;
+        color: var(--clr-neutral-100);
+        background-size: cover;
+        padding: 3.5rem 0 0;
+        width: 35vh;
+        height: 50vh;
+        overflow: hidden
+    }
+    .card-content {
+        --padding: 1.5rem;
+        padding: var(--padding);
+        background: linear-gradient(hsl(0 0% 0% / 0.0), hsl(0 0% 0% / 0.4), hsl(0 0% 0% / 0.9), hsl(0 0% 0% / 1));
+        height: 75vh;
+    }
+    .card:focus-within .card-content>:not(.card-title) {
+        transition-delay: 0
+    }
+    .card-title {
+        font-size: 100%!important;
+        width: 120%!important;
+        position: relative
+    }
+    .card-body {
+        color: white;
+        font-size: 100%!important;
+        line-height: 100%!important;
+    }
+    .card-title::after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: calc(100% + var(--padding));
+        left: calc(var(--padding) * -1);
+        bottom: -2px;
+        background: var(--clr-accent-100);
+        transform-origin: left;
+        transition: transform 500ms ease
+    }
+    .card:hover .card-title::after,
+    .card:focus-within .card-title::after {
+        transform: scaleX(1)
+    }
+    .button {
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+        color: var(--clr-neutral-900);
+        background: var(--clr-accent-100);
+        padding: .5em 1.25em;
+        border-radius: .25em
+    }
+    .button:hover,
+    .button:focus {
+        background-color: var(--clr-neutral-100)
+    }
+    @media (hover) {
+        .card-content {
+            transform: translateY(60%);
+            transition: transform 500ms ease
+        }
+        .card:hover .card-content,
+        .card:focus-within .card-content {
+            transform: translateY(10%);
+            transition-delay: 300ms;
+        }
+        .card:focus-within .card-content {
+            transition-duration: 100ms
+        }
+        .card-content>:not(.card-title) {
+            opacity: 0;
+            transition: opacity 400ms linear
+        }
+        .card:hover .card-content>:not(.card-title),
+        .card:focus-within .card-content>:not(.card-title) {
+            opacity: 1;
+            transition-delay: 400ms
+        }
+        .card-title::after {
+            transform: scaleX(0)
+        }
+        .topBarElement:hover::after {
+            transition: transform 500ms ease;
+            transform: scaleX(1)
+        }
+    }
+    /*@media(prefers-reduced-motion: reduce) {
+*,
+::before,
+::after {
+animation-duration: .01ms!important;
+animation-iteration-count: 1!important;
+transition-duration: .01ms!important;
+scroll-behavior: auto!important;
+transition-delay: .01ms!important
+}
+}*/
+    #card-middle {
+        position: relative;
+        z-index: 2;
+    }
+    #card-right {
+        position: relative;
+        z-index: 1;
+        filter: grayscale(0);
+        opacity: 1;
+        transform: translateX(-1.75rem) scale(0.95);
+        transition: transform 400ms linear
+    }
+    #card-left {
+        position: relative;
+        z-index: 1;
+        filter: grayscale(0);
+        opacity: 1;
+        transform: translateX(1.75rem) scale(0.95);
+        transition: transform 400ms linear
+    }
+    .front>div>h2 {
+        opacity: 0
+    }
+    #card-left:hover,
+    #card-left:focus-within {
+        transform: translateX(-1.5rem) scale(1);
+    }
+    #card-left:hover #front-left>div>h2,
+    #card-left:focus-within #front-left>div>h2 {
+        opacity: 100
+    }
+    #card-middle:hover #front-middle>div>h2,
+    #card-middle:focus-within #front-middle>div>h2 {
+        opacity: 100
+    }
+    #card-right:hover #front-right>div>h2,
+    #card-right:focus-within #front-right>div>h2 {
+        opacity: 100
+    }
+    #card-right:hover,
+    #card-right:focus-within {
+        transform: translateX(1.5rem) scale(1);
+    }
+    #card-middle:hover,
+    #card-middle:focus-within {
+        transform: scale(1.1);
+    }
+    #back-left {
+        opacity: 1 !important;
+    }
+    #back-left::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        z-index: -1;
+        background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+        transform: rotate(270deg);
+    }
+    #back-middle {
+        background: green
+    }
+    #back-right {
+        background: #002136
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+        width: 100vw;
+        margin: 0px;
+        padding: 0px;
+        max-width: 100%;
+        min-height: 100vh;
+        place-items: center;
+        line-height: 1.6;
+        font-family: monospace;
+        background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    body {
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        min-height: 100vh;
+        height: inherit
+    }
+    .topBarElement {
+        opacity: 0;
+        z-index: -1;
+        text-align: center;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+        height: 20px;
+        width: auto;
+        top: calc(50% - 5px)
+    }
+    .topBarElement::after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: 60%;
+        left: 20%;
+        bottom: -2px;
+        background: linear-gradient(100deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+        transform-origin: center;
+        transition: transform 500ms ease;
+        border-radius: 2px;
+        z-index: 100;
+        transform: scaleX(0);
+    }
+    .card-container {
+        position: absolute;
+        top: 16vh;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        padding-left: 10vw;
+    }
+    .card {
+        position: relative;
+        width: 80vw;
+        height: 100%;
+        max-height: 75vh !important;
+        background-color: transparent;
+        margin-top: -30px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    .zSpin {
+        width: 100%;
+        height: 100%;
+    }
+    .ySpin {
+        width: 100%;
+        height: 100%;
+    }
+    .front {
+        width: 100%;
+        height: 100%;
+        max-height: 70vh !important;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: .5rem;
+        color: var(--clr-neutral-100);
+        padding: 3.5rem 0 0;
+        overflow: hidden;
+    }
+    #front-left {
+        background: url(snakesAndLadders/snakes\ and\ ladders.png)center top;
+        background-size: cover
+    }
+    #front-right {
+        background: url(dice/typingPractice.png)center top;
+        background-size: cover
+    }
+    #front-middle {
+        background: url(dice/rollDice.png)center top;
+        background-size: cover
+    }
+    #card-left .card-title,
+    #card-right .card-title {
+        margin-left: -10px;
+    }
+    .card-content {
+        --padding: 1.5rem;
+        padding: var(--padding);
+        background: linear-gradient(hsl(0 0% 0% / 0.0), hsl(0 0% 0% / 0.4), hsl(0 0% 0% / 0.9), hsl(0 0% 0% / 1));
+        height: 75vh;
+        position: relative;
+        top: 30%;
+    }
+    .card:focus-within .card-content>:not(.card-title) {
+        transition-delay: 0
+    }
+    .card-title {
+        width: 120%!important;
+        position: relative
+    }
+    .card-body {
+        color: white
+    }
+    .card-title::after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: 200%;
+        left: -100px;
+        bottom: -2px;
+        background: var(--clr-accent-100);
+        transform-origin: left;
+        transition: transform 500ms ease
+    }
+    .card:hover .card-title::after,
+    .card:focus-within .card-title::after {
+        transform: scaleX(1)
+    }
+    .button {
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+        color: var(--clr-neutral-900);
+        background: var(--clr-accent-100);
+        padding: .5em 1.25em;
+        border-radius: .25em
+    }
+    .button:hover,
+    .button:focus {
+        background-color: var(--clr-neutral-100)
+    }
+    /*@media(prefers-reduced-motion: reduce) {
+*,
+::before,
+::after {
+animation-duration: .01ms!important;
+animation-iteration-count: 1!important;
+transition-duration: .01ms!important;
+scroll-behavior: auto!important;
+transition-delay: .01ms!important
+}
+}*/
+}
