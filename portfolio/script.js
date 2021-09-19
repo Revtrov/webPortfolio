@@ -11,7 +11,7 @@ for (j = 0; j < z.length; j++) {
 // @ts-nocheck
 document.getElementById("left-button").addEventListener("click", () => {
     console.log("left button clicked")
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > window.innerHeight) {
         document.getElementById("ySpinL").style.transform = "rotateY(180deg)";
         document.getElementById("zSpinL").style.transform = "rotateZ(90deg)";
         document.getElementById("card-left").style.position = "fixed";
@@ -29,7 +29,7 @@ document.getElementById("left-button").addEventListener("click", () => {
 
 document.getElementById("right-button").addEventListener("click", () => {
 
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > window.innerHeight) {
         document.getElementById("ySpinR").style.transform = "rotateY(180deg)";
         document.getElementById("zSpinR").style.transform = "rotateZ(90deg)";
         document.getElementById("back-right").style.width = "100vh";
@@ -47,7 +47,7 @@ document.getElementById("right-button").addEventListener("click", () => {
 
 document.getElementById("middle-button").addEventListener("click", () => {
 
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > window.innerHeight) {
         document.getElementById("ySpinM").style.transform = "rotateY(180deg)";
         document.getElementById("zSpinM").style.transform = "rotateZ(90deg)";
         document.getElementById("back-middle").style.width = "100vh";

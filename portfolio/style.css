@@ -245,13 +245,14 @@ transition-delay: .01ms!important
     #card-middle {
         position: relative;
         z-index: 2;
+        transform: translateX(-1rem);
     }
     #card-right {
         position: relative;
         z-index: 1;
         filter: grayscale(0);
         opacity: 1;
-        transform: translateX(-1.75rem) scale(0.95);
+        transform: translateX(-2rem) scale(0.95);
         transition: transform 400ms linear
     }
     #card-left {
@@ -259,7 +260,7 @@ transition-delay: .01ms!important
         z-index: 1;
         filter: grayscale(0);
         opacity: 1;
-        transform: translateX(1.75rem) scale(0.95);
+        transform: translateX(0rem) scale(0.95);
         transition: transform 400ms linear
     }
     .front>div>h2 {
@@ -267,7 +268,7 @@ transition-delay: .01ms!important
     }
     #card-left:hover,
     #card-left:focus-within {
-        transform: translateX(-1.5rem) scale(1);
+        transform: translateX(-3.5rem) scale(1);
     }
     #card-left:hover #front-left>div>h2,
     #card-left:focus-within #front-left>div>h2 {
@@ -287,7 +288,7 @@ transition-delay: .01ms!important
     }
     #card-middle:hover,
     #card-middle:focus-within {
-        transform: scale(1.1);
+        transform: scale(1.1) translateX(-1rem);
     }
     #back-left {
         opacity: 1 !important;
